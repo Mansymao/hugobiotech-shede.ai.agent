@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>予果生物科技（北京）有限公司 — 2026年奖补项目申报清单</title>
+    <style>
+        :root {
+            --primary: #1a3a5c;
+            --primary-light: #2d5f8a;
+            --accent: #e8943a;
+            --accent-light: #f5b971;
+            --bg: #f4f6f9;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+            --text-light: #6c7a89;
+            --border: #dce3ec;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --info: #3498db;
+            --danger: #e74c3c;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            padding: 24px 0 0;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .header-logo {
+            width: 56px; height: 56px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        .header h1 {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .header p {
+            font-size: 13px;
+            opacity: 0.85;
+            margin-top: 2px;
+        }
+        .nav {
+            margin-top: 16px;
+            display: flex;
+            gap: 0;
+            overflow-x: auto;
+            padding-bottom: 0;
+        }
+        .nav a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-size: 13px;
+            padding: 10px 16px;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .nav a:hover, .nav a.active {
+            color: #fff;
+            border-bottom-color: var(--accent);
+        }
+        .section {
+            scroll-margin-top: 120px;
+            margin-top: 36px;
+        }
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent);
+        }
+        .section-title .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .section-title h2 {
+            font-size: 20px;
+            color: var(--primary);
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px 32px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+        /* ===== 可折叠企业信息板块 ===== */
+        .collapsible-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            padding: 0;
+        }
+        .collapsible-header .section-title {
+            flex: 1;
+            pointer-events: none;
+        }
+        .collapsible-toggle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: var(--text-light);
+            transition: transform 0.3s, background 0.2s;
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+        .collapsible-header:hover .collapsible-toggle {
+            background: var(--primary-light);
+            color: #fff;
+        }
+        .collapsible-header.open .collapsible-toggle {
+            transform: rotate(180deg);
+        }
+        .collapsible-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s;
+            opacity: 0;
+        }
+        .collapsible-body.open {
+            max-height: 3000px;
+            opacity: 1;
+        }
+        /* ===== 企业概述信息卡片 ===== */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+        .info-item {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 16px 20px;
+            border-left: 4px solid var(--primary-light);
+        }
+        .info-item .label {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+        .info-item .value {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        /* ===== 业务卡片 ===== */
+        .biz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 16px;
+        }
+        .biz-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .biz-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+        }
+        .biz-card .biz-icon {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        .biz-card h4 {
+            font-size: 15px;
+            color: var(--primary);
+            margin-bottom: 6px;
+        }
+        .biz-card p {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        /* ===== 资质荣誉 ===== */
+        .badge-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .badge-group .level-label {
+            width: 100%;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-top: 12px;
+            margin-bottom: 4px;
+            padding-bottom: 4px;
+            border-bottom: 1px dashed var(--border);
+        }
+        .badge-group .level-label:first-child { margin-top: 0; }
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .badge.national { background: #fde8e8; color: #c0392b; }
+        .badge.province { background: #e8f0fe; color: #2d5f8a; }
+        .badge.city { background: #e8f8f0; color: #27ae60; }
+        /* ===== 时间轴 ===== */
+        .timeline {
+            position: relative;
+            padding-left: 28px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--accent), var(--primary-light));
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 24px;
+            padding-left: 16px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -24px;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+        .timeline-year {
+            font-size: 13px;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        .timeline-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 4px 0;
+        }
+        .timeline-desc {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+        .timeline-status {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .timeline-status.done { background: #e8f8f0; color: var(--success); }
+        .timeline-status.ongoing { background: #fef3e2; color: var(--warning); }
+        .timeline-status.renew { background: #e8f0fe; color: var(--info); }
+        /* ===== 统计摘要 ===== */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            text-align: center;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border);
+        }
+        .stat-num {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+        /* ===== 筛选按钮 ===== */
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover { border-color: var(--primary-light); }
+        .filter-btn.active {
+            background: var(--primary-light);
+            color: #fff;
+            border-color: var(--primary-light);
+        }
+        /* ===== 数据表格 ===== */
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        .data-table {
+            width: 100%;
+            min-width: 1600px;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        .data-table thead th {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+        .data-table tbody td {
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .data-table tbody tr:hover { background: #f8fafc; }
+        .level-tag {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .level-tag.national { background: #fde8e8; color: #c0392b; }
+        .level-tag.province { background: #e8f0fe; color: #2d5f8a; }
+        .level-tag.city { background: #e8f8f0; color: #27ae60; }
+        .level-tag.district { background: #f3e8fe; color: #8e44ad; }
+        .amount {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .tech-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            margin: 2px;
+            font-weight: 500;
+        }
+        .tech-tag.hw { background: #e8f8f0; color: #27ae60; }
+        .tech-tag.sw { background: #f0e8fe; color: #8e44ad; }
+        .tech-tag.ai { background: #fde8e8; color: #c0392b; }
+        .tech-tag.default { background: #e8f0fe; color: #2d5f8a; }
+        .ext-icon {
+            font-size: 11px;
+            color: var(--info);
+            margin-left: 2px;
+        }
+        /* ===== Roadmap ===== */
+        .roadmap {
+            margin-top: 10px;
+        }
+        .roadmap-quarter {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        .roadmap-label {
+            min-width: 120px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: #fff;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        .roadmap-items {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .roadmap-item {
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            border-left: 4px solid;
+            background: #f8fafc;
+        }
+        .roadmap-item.national { border-left-color: #c0392b; }
+        .roadmap-item.province { border-left-color: #2d5f8a; }
+        .roadmap-item.city { border-left-color: #27ae60; }
+        .roadmap-item.district { border-left-color: #8e44ad; }
+        .roadmap-item .ri-name { font-weight: 600; color: var(--primary); }
+        .roadmap-item .ri-amount { font-size: 12px; color: var(--accent); margin-top: 2px; }
+        /* ===== Unit Summary ===== */
+        .unit-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+        .unit-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 18px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+        .unit-card h4 {
+            font-size: 14px;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .unit-card .unit-num {
+            font-size: 24px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .unit-card .unit-projects {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 6px;
+        }
+        /* ===== Policy Cards ===== */
+        .policy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .policy-card-item {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 16px 20px;
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .policy-card-item .pc-num {
+            width: 28px;
+            height: 28px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .policy-card-item .pc-body h4 {
+            font-size: 14px;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .policy-card-item .pc-body p {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+        .policy-card-item .pc-body a {
+            color: var(--info);
+            text-decoration: none;
+        }
+        .policy-card-item .pc-body a:hover { text-decoration: underline; }
+        /* ===== Lifecycle ===== */
+        .lifecycle-bar {
+            margin-top: 20px;
+            background: #fff8e1;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        .lifecycle-bar h4 {
+            font-size: 15px;
+            color: #b8860b;
+            margin-bottom: 16px;
+        }
+        .lifecycle-steps {
+            display: flex;
+            gap: 0;
+        }
+        .lifecycle-step {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .lifecycle-step .bar {
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+        .lifecycle-step:nth-child(1) .bar { background: #e74c3c; }
+        .lifecycle-step:nth-child(2) .bar { background: #f39c12; }
+        .lifecycle-step:nth-child(3) .bar { background: #27ae60; }
+        .lifecycle-step:nth-child(4) .bar { background: #3498db; }
+        .step-label { font-size: 13px; font-weight: 600; color: var(--primary); }
+        .step-pct { font-size: 12px; color: var(--text-light); }
+        /* ===== Contact Bar ===== */
+        .contact-bar {
+            margin-top: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 28px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .contact-bar-title {
+            font-weight: 700;
+            font-size: 15px;
+            color: var(--primary);
+        }
+        .contact-bar-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        .contact-bar-info {
+            font-size: 13px;
+            color: var(--text);
+        }
+        .contact-bar-info a { color: var(--info); text-decoration: none; }
+        .contact-bar-info a:hover { text-decoration: underline; }
+        .cb-label {
+            font-size: 11px;
+            background: var(--bg);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: var(--text-light);
+            margin-right: 4px;
+        }
+        .contact-bar-sep {
+            width: 1px;
+            height: 24px;
+            background: var(--border);
+        }
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 32px 0;
+            color: var(--text-light);
+            font-size: 12px;
+            margin-top: 40px;
+        }
+        /* ===== Responsive ===== */
+        @media (max-width: 768px) {
+            .container { padding: 16px; }
+            .header-inner { flex-direction: column; gap: 8px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .info-grid { grid-template-columns: 1fr; }
+            .roadmap-quarter { flex-direction: column; }
+            .contact-bar { flex-direction: column; align-items: flex-start; }
+            .contact-bar-sep { width: 100%; height: 1px; }
+        }
+        @media print {
+            .header, .nav, .filter-bar { position: static; }
+            .section { page-break-inside: avoid; }
+            .collapsible-body { max-height: none !important; opacity: 1 !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<div class="header">
+    <div class="container">
+        <div class="header-inner">
+            <div class="header-logo">&#129516;</div>
+            <div>
+                <h1>予果生物科技（北京）有限公司</h1>
+                <p>2026年度奖补项目申报清单 &middot; 感染精准医学 &middot; 北京经济技术开发区</p>
+            </div>
+        </div>
+        <nav class="nav">
+            <a href="#projects" class="active">可申报项目</a>
+            <a href="#policy">政策依据</a>
+            <a href="#overview">企业概述</a>
+            <a href="#business">主营业务</a>
+            <a href="#honors">资质荣誉</a>
+            <a href="#history">近三年项目</a>
+        </nav>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ============================================ -->
+    <!-- ===== 核心板块：可申报项目清单（首屏） ===== -->
+    <!-- ============================================ -->
+    <div class="section" id="projects">
+        <div class="section-title">
+            <div class="icon">1</div>
+            <h2>2026年可申报项目清单</h2>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-num">11</div>
+                <div class="stat-label">可申报项目总数</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">4</div>
+                <div class="stat-label">国家级项目</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">760-2,250万</div>
+                <div class="stat-label">预计奖补总额（万元）</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-num">7</div>
+                <div class="stat-label">涉及归口部门</div>
+            </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+            <button class="filter-btn active" onclick="filterTable('all')">全部</button>
+            <button class="filter-btn" onclick="filterTable('national')">国家级</button>
+            <button class="filter-btn" onclick="filterTable('province')">市级</button>
+            <button class="filter-btn" onclick="filterTable('district')">区级</button>
+        </div>
+
+        <!-- Data Table -->
+        <div class="table-wrap">
+            <table class="data-table" id="projectTable">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>项目名称</th>
+                        <th>项目类别</th>
+                        <th>归口部门</th>
+                        <th>申报层级</th>
+                        <th>申报周期</th>
+                        <th>预计奖补金额</th>
+                        <th>关键技术方向</th>
+                        <th>申报核心条件</th>
+                        <th>所需材料</th>
+                        <th>政策依据</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-level="national">
+                        <td>1</td>
+                        <td><strong>专精特新"小巨人"企业认定</strong></td>
+                        <td>企业培育</td>
+                        <td>工信部</td>
+                        <td><span class="level-tag national">国家级</span></td>
+                        <td>4-6月</td>
+                        <td class="amount">50-100万</td>
+                        <td>
+                            <span class="tech-tag ai">AI病原分析</span>
+                            <span class="tech-tag hw">测序设备</span>
+                            <span class="tech-tag sw">PACE系统</span>
+                        </td>
+                        <td>已获市级专精特新中小企业认定；主导产品属于工业"六基"或制造强国重点领域；营收1亿以上或近两年研发占比≥3%</td>
+                        <td>企业基本情况表、专精特新中小企业申请表、审计报告、知识产权证明、主导产品说明</td>
+                        <td><a href="https://www.beijing.gov.cn/zhengce/zhengcefagui/202604/t20260427_4616409.html" target="_blank" rel="noopener">北京市经信局2026年度专精特新"小巨人"企业申报通知 ↗</a></td>
+                    </tr>
+                    <tr data-level="national">
+                        <td>2</td>
+                        <td><strong>国家高新技术企业认定（续期）</strong></td>
+                        <td>科技创新</td>
+                        <td>科技部 / 北京市科委</td>
+                        <td><span class="level-tag national">国家级</span></td>
+                        <td>5-9月</td>
+                        <td class="amount">20万+税收优惠</td>
+                        <td>
+                            <span class="tech-tag ai">AI病原分析</span>
+                            <span class="tech-tag sw">基因测序分析</span>
+                            <span class="tech-tag hw">测序仪器</span>
+                        </td>
+                        <td>企业成立1年以上；拥有核心自主知识产权；科技人员占比≥10%；研发费用占比达标；高新技术产品收入占比≥60%</td>
+                        <td>高企认定申请书、企业营业执照、知识产权证书、科研项目立项证明、科技成果转化材料、研发组织管理制度</td>
+                        <td><a href="https://kw.beijing.gov.cn/zwgk/zcwj/202606/t20260608_4690659.html" target="_blank" rel="noopener">北京市2026年度科技型中小企业评价工作通知 ↗</a></td>
+                    </tr>
+                    <tr data-level="national">
+                        <td>3</td>
+                        <td><strong>国家重点研发计划"诊疗装备与生物医用材料"重点专项</strong></td>
+                        <td>科技创新</td>
+                        <td>国家卫健委 / 科技部</td>
+                        <td><span class="level-tag national">国家级</span></td>
+                        <td>5-8月</td>
+                        <td class="amount">200-500万</td>
+                        <td>
+                            <span class="tech-tag hw">体外诊断设备</span>
+                            <span class="tech-tag sw">测序分析软件</span>
+                            <span class="tech-tag ai">AI辅助诊断</span>
+                        </td>
+                        <td>具有独立法人资格的企事业单位；具备相关领域研究基础和团队；项目负责人具有高级职称；鼓励产学研联合申报</td>
+                        <td>项目申报书、单位法人资格证明、研究基础与团队介绍、预算编制、合作协议（联合申报时）</td>
+                        <td>国家重点研发计划"诊疗装备与生物医用材料"重点专项2025年度项目申报指南（国家卫健委）</td>
+                    </tr>
+                    <tr data-level="national">
+                        <td>4</td>
+                        <td><strong>新发突发与重大传染病防控国家科技重大专项</strong></td>
+                        <td>科技创新</td>
+                        <td>国家卫健委</td>
+                        <td><span class="level-tag national">国家级</span></td>
+                        <td>4-7月</td>
+                        <td class="amount">100-300万</td>
+                        <td>
+                            <span class="tech-tag hw">病原检测设备</span>
+                            <span class="tech-tag sw">mNGS分析平台</span>
+                            <span class="tech-tag ai">病原AI鉴定</span>
+                        </td>
+                        <td>具有病原微生物检测相关技术积累和临床应用基础；鼓励企业与医疗机构联合申报；研究方向需与专项指南匹配</td>
+                        <td>项目申报书、研究方案、团队资质、前期成果证明、联合申报协议、伦理审批文件</td>
+                        <td>新发突发与重大传染病防控国家科技重大专项2026年度项目申报指南（国家卫健委）</td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>5</td>
+                        <td><strong>北京市高精尖产业发展资金（生物医药方向）</strong></td>
+                        <td>产业发展</td>
+                        <td>北京市经信局</td>
+                        <td><span class="level-tag province">市级</span></td>
+                        <td>3-5月</td>
+                        <td class="amount">50-300万</td>
+                        <td>
+                            <span class="tech-tag hw">体外诊断试剂</span>
+                            <span class="tech-tag sw">检测平台</span>
+                        </td>
+                        <td>在北京注册、具有独立法人资格；近3年无严重违法失信；创新医疗器械/体外诊断产品已获注册证或进入产业化阶段</td>
+                        <td>项目申报表、法人营业执照、产品注册证/备案凭证、审计报告、产业化方案、研发投入证明</td>
+                        <td><a href="https://jxj.beijing.gov.cn/zwgk/2024zcwj/202602/t20260214_4516700.html" target="_blank" rel="noopener">2026年北京市高精尖产业发展项目资金实施指南 ↗</a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>6</td>
+                        <td><strong>北京市知识产权资助金</strong></td>
+                        <td>知识产权</td>
+                        <td>北京市知识产权局</td>
+                        <td><span class="level-tag province">市级</span></td>
+                        <td>年度（通常Q1-Q2）</td>
+                        <td class="amount">5-20万</td>
+                        <td>
+                            <span class="tech-tag default">发明专利</span>
+                            <span class="tech-tag default">海外专利</span>
+                        </td>
+                        <td>在北京注册的企事业单位；拥有已授权的国内外发明专利；近年度内有新增专利授权或海外知识产权布局</td>
+                        <td>知识产权资助申请表、专利证书/授权通知、法人证明、知识产权管理制度说明</td>
+                        <td><a href="https://zscqj.beijing.gov.cn/zscqj/zwgk/tzgg/326154321/index.html" target="_blank" rel="noopener">北京市知识产权局知识产权资助金申报通知 ↗</a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>7</td>
+                        <td><strong>首都科技创新券</strong></td>
+                        <td>科技创新</td>
+                        <td>北京市科委 / 中关村管委会</td>
+                        <td><span class="level-tag province">市级</span></td>
+                        <td>4-5月 / 10-11月</td>
+                        <td class="amount">5万/张</td>
+                        <td>
+                            <span class="tech-tag ai">AI检测算法</span>
+                            <span class="tech-tag sw">测序数据分析</span>
+                        </td>
+                        <td>科技型中小微企业；成立3年以上、员工≤500人、年营收≤2亿；可用于委托研发、检验检测、技术咨询等</td>
+                        <td>无需提交材料，系统自动审核企业资质；领券后通过指定平台使用</td>
+                        <td><a href="https://www.beijing.gov.cn/fuwu/lqfw/gggs/202604/t20260414_4581263.html" target="_blank" rel="noopener">2026年第一批首都科技创新券启动申领通知 ↗</a></td>
+                    </tr>
+                    <tr data-level="province">
+                        <td>8</td>
+                        <td><strong>北京市高精尖产业发展资金（中小企业方向）</strong></td>
+                        <td>企业培育</td>
+                        <td>北京市经信局</td>
+                        <td><span class="level-tag province">市级</span></td>
+                        <td>3-5月</td>
+                        <td class="amount">10-30万</td>
+                        <td>
+                            <span class="tech-tag sw">病原检测平台</span>
+                            <span class="tech-tag ai">AI分析系统</span>
+                        </td>
+                        <td>在京注册的中小工业企业；首达营收2000万奖励不超30万；达1亿追加20万；近3年无违法失信</td>
+                        <td>企业基本情况表、审计报告、营收证明、纳税证明、法人营业执照</td>
+                        <td><a href="https://jxj.beijing.gov.cn/zwgk/2024zcwj/202602/t20260214_4516700.html" target="_blank" rel="noopener">2026年支持中小企业发展资金实施指南 ↗</a></td>
+                    </tr>
+                    <tr data-level="district">
+                        <td>9</td>
+                        <td><strong>经开区医药健康产业高质量发展专项</strong></td>
+                        <td>产业发展</td>
+                        <td>经开区生物技术和大健康产业局</td>
+                        <td><span class="level-tag district">区级</span></td>
+                        <td>5-6月</td>
+                        <td class="amount">50-200万</td>
+                        <td>
+                            <span class="tech-tag hw">体外诊断设备</span>
+                            <span class="tech-tag sw">检测试剂</span>
+                            <span class="tech-tag ai">AI诊断</span>
+                        </td>
+                        <td>注册在经开区、从事医药健康产业的实体企业；产品取得注册证或进入临床验证阶段；符合经开区产业规划方向</td>
+                        <td>项目申报书、法人营业执照、产品注册证/备案、研发投入证明、审计报告、场地证明</td>
+                        <td><a href="https://kfqgw.beijing.gov.cn/zwgkkfq/2024zcwj/202605/t20260526_4667049.html" target="_blank" rel="noopener">经开区2025年度生物医药产业政策相关事项申报通知 ↗</a></td>
+                    </tr>
+                    <tr data-level="district">
+                        <td>10</td>
+                        <td><strong>经开区"专精特新"企业获批奖励</strong></td>
+                        <td>企业培育</td>
+                        <td>经开区科技和产业促进局</td>
+                        <td><span class="level-tag district">区级</span></td>
+                        <td>年度通知</td>
+                        <td class="amount">50-80万</td>
+                        <td>
+                            <span class="tech-tag ai">AI病原分析</span>
+                            <span class="tech-tag hw">测序设备</span>
+                            <span class="tech-tag sw">PACE系统</span>
+                        </td>
+                        <td>注册在经开区有效期内市级及以上专精特新企业；可叠加高新技术企业认定奖励（不重复）</td>
+                        <td>申请表、专精特新认定证书、法人营业执照、税务证明、企业经营情况表</td>
+                        <td>《北京经济技术开发区关于进一步激发创新活力打造高精尖产业主阵地的若干意见》（京技管发〔2025〕4号）</td>
+                    </tr>
+                    <tr data-level="district">
+                        <td>11</td>
+                        <td><strong>经开区医药健康领域创新平台认定及支持</strong></td>
+                        <td>科技创新</td>
+                        <td>经开区生物技术和大健康产业局</td>
+                        <td><span class="level-tag district">区级</span></td>
+                        <td>6-9月</td>
+                        <td class="amount">20-100万</td>
+                        <td>
+                            <span class="tech-tag hw">测序仪器研发</span>
+                            <span class="tech-tag sw">病原数据平台</span>
+                            <span class="tech-tag ai">AI辅助诊断</span>
+                        </td>
+                        <td>注册在经开区的医药健康企业；拥有独立的研发平台和技术团队；平台具备开放服务能力</td>
+                        <td>创新平台认定申请表、研发平台介绍、设备清单、团队资质、研发投入证明、服务案例</td>
+                        <td>经开区生物技术和大健康产业局2025年度创新平台认定申报通知</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="card" style="margin-top:24px;">
+            <h3 style="color:var(--primary); margin-bottom:16px;">&#128197; 申报规划路线图</h3>
+            <div class="roadmap">
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q1<br><span style="font-size:12px;font-weight:400;">1-3月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item province">
+                            <div class="ri-name">高精尖产业发展资金（生物医药+中小企业）</div>
+                            <div class="ri-amount">60-330万</div>
+                        </div>
+                        <div class="roadmap-item province">
+                            <div class="ri-name">北京市知识产权资助金</div>
+                            <div class="ri-amount">5-20万</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q2<br><span style="font-size:12px;font-weight:400;">4-6月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item national">
+                            <div class="ri-name">专精特新"小巨人"企业认定</div>
+                            <div class="ri-amount">50-100万</div>
+                        </div>
+                        <div class="roadmap-item national">
+                            <div class="ri-name">新发突发与重大传染病防控重大专项</div>
+                            <div class="ri-amount">100-300万</div>
+                        </div>
+                        <div class="roadmap-item province">
+                            <div class="ri-name">首都科技创新券（第一批）</div>
+                            <div class="ri-amount">5万/张</div>
+                        </div>
+                        <div class="roadmap-item district">
+                            <div class="ri-name">经开区医药健康产业专项</div>
+                            <div class="ri-amount">50-200万</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q3<br><span style="font-size:12px;font-weight:400;">7-9月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item national">
+                            <div class="ri-name">国家高新技术企业认定（续期）</div>
+                            <div class="ri-amount">20万+税收优惠</div>
+                        </div>
+                        <div class="roadmap-item national">
+                            <div class="ri-name">国家重点研发计划"诊疗装备"</div>
+                            <div class="ri-amount">200-500万</div>
+                        </div>
+                        <div class="roadmap-item district">
+                            <div class="ri-name">经开区创新平台认定</div>
+                            <div class="ri-amount">20-100万</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="roadmap-quarter">
+                    <div class="roadmap-label">Q4<br><span style="font-size:12px;font-weight:400;">10-12月</span></div>
+                    <div class="roadmap-items">
+                        <div class="roadmap-item province">
+                            <div class="ri-name">首都科技创新券（第二批）</div>
+                            <div class="ri-amount">5万/张</div>
+                        </div>
+                        <div class="roadmap-item district">
+                            <div class="ri-name">经开区"专精特新"企业获批奖励</div>
+                            <div class="ri-amount">50-80万</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unit Summary -->
+        <div class="card" style="margin-top:20px;">
+            <h3 style="color:var(--primary); margin-bottom:16px;">&#127970; 归口部门项目分布</h3>
+            <div class="unit-summary">
+                <div class="unit-card">
+                    <h4>工信部</h4>
+                    <div class="unit-num">1</div>
+                    <div class="unit-projects">专精特新"小巨人"</div>
+                </div>
+                <div class="unit-card">
+                    <h4>国家卫健委/科技部</h4>
+                    <div class="unit-num">3</div>
+                    <div class="unit-projects">重点研发计划、传染病重大专项、高企认定</div>
+                </div>
+                <div class="unit-card">
+                    <h4>北京市经信局</h4>
+                    <div class="unit-num">2</div>
+                    <div class="unit-projects">高精尖资金（生物医药+中小企业）</div>
+                </div>
+                <div class="unit-card">
+                    <h4>北京市科委/中关村</h4>
+                    <div class="unit-num">1</div>
+                    <div class="unit-projects">首都科技创新券</div>
+                </div>
+                <div class="unit-card">
+                    <h4>北京市知识产权局</h4>
+                    <div class="unit-num">1</div>
+                    <div class="unit-projects">知识产权资助金</div>
+                </div>
+                <div class="unit-card">
+                    <h4>经开区大健康产业局</h4>
+                    <div class="unit-num">2</div>
+                    <div class="unit-projects">医药健康专项、创新平台认定</div>
+                </div>
+                <div class="unit-card">
+                    <h4>经开区科技和产业促进局</h4>
+                    <div class="unit-num">1</div>
+                    <div class="unit-projects">专精特新奖励</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 政策依据汇总 ===== -->
+    <div class="section" id="policy">
+        <div class="section-title">
+            <div class="icon">2</div>
+            <h2>政策依据汇总</h2>
+        </div>
+        <div class="card">
+            <div class="policy-list">
+                <div class="policy-card-item">
+                    <div class="pc-num">1</div>
+                    <div class="pc-body">
+                        <h4>北京市经济和信息化局关于开展2026年度专精特新"小巨人"企业申报和复核工作的通知</h4>
+                        <p><a href="https://www.beijing.gov.cn/zhengce/zhengcefagui/202604/t20260427_4616409.html" target="_blank" rel="noopener">https://www.beijing.gov.cn/zhengce/zhengcefagui/202604/t20260427_4616409.html ↗</a></p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">2</div>
+                    <div class="pc-body">
+                        <h4>北京市经济和信息化局、北京市财政局《2026年北京市高精尖产业发展项目资金和支持中小企业发展资金实施指南（第一批）》</h4>
+                        <p><a href="https://jxj.beijing.gov.cn/zwgk/2024zcwj/202602/t20260214_4516700.html" target="_blank" rel="noopener">https://jxj.beijing.gov.cn/zwgk/2024zcwj/202602/t20260214_4516700.html ↗</a></p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">3</div>
+                    <div class="pc-body">
+                        <h4>北京市科学技术委员会《关于组织开展北京市2026年度科技型中小企业评价工作的通知》</h4>
+                        <p><a href="https://kw.beijing.gov.cn/zwgk/zcwj/202606/t20260608_4690659.html" target="_blank" rel="noopener">https://kw.beijing.gov.cn/zwgk/zcwj/202606/t20260608_4690659.html ↗</a></p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">4</div>
+                    <div class="pc-body">
+                        <h4>2026年第一批首都科技创新券启动申领通知</h4>
+                        <p><a href="https://www.beijing.gov.cn/fuwu/lqfw/gggs/202604/t20260414_4581263.html" target="_blank" rel="noopener">https://www.beijing.gov.cn/fuwu/lqfw/gggs/202604/t20260414_4581263.html ↗</a></p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">5</div>
+                    <div class="pc-body">
+                        <h4>北京市知识产权局《知识产权资助金管理办法》及年度申报通知</h4>
+                        <p><a href="https://zscqj.beijing.gov.cn/zscqj/zwgk/tzgg/326154321/index.html" target="_blank" rel="noopener">https://zscqj.beijing.gov.cn/zscqj/zwgk/tzgg/326154321/index.html ↗</a></p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">6</div>
+                    <div class="pc-body">
+                        <h4>北京经济技术开发区生物技术和大健康产业局《2025年度生物医药产业政策相关事项申报通知》</h4>
+                        <p><a href="https://kfqgw.beijing.gov.cn/zwgkkfq/2024zcwj/202605/t20260526_4667049.html" target="_blank" rel="noopener">https://kfqgw.beijing.gov.cn/zwgkkfq/2024zcwj/202605/t20260526_4667049.html ↗</a></p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">7</div>
+                    <div class="pc-body">
+                        <h4>《北京经济技术开发区关于进一步激发创新活力打造高精尖产业主阵地的若干意见》（京技管发〔2025〕4号）</h4>
+                        <p>北京经济技术开发区政策文件</p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">8</div>
+                    <div class="pc-body">
+                        <h4>《北京经济技术开发区关于促进医药健康产业高质量发展的若干意见》（京技管发〔2025〕9号）</h4>
+                        <p>北京经济技术开发区政策文件</p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">9</div>
+                    <div class="pc-body">
+                        <h4>国家重点研发计划"诊疗装备与生物医用材料"重点专项2025年度项目申报指南</h4>
+                        <p>国家卫生健康委员会</p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">10</div>
+                    <div class="pc-body">
+                        <h4>新发突发与重大传染病防控国家科技重大专项2026年度项目申报指南</h4>
+                        <p>国家卫生健康委员会</p>
+                    </div>
+                </div>
+                <div class="policy-card-item">
+                    <div class="pc-num">11</div>
+                    <div class="pc-body">
+                        <h4>《北京市促进医疗器械产业高质量发展若干措施》</h4>
+                        <p>北京市经济和信息化局等六部门联合印发（有效期至2028年12月31日）</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 重要提示 + 生命周期（固定板块） ===== -->
+    <div class="card" style="background: #fffbeb; border-color: #f5deb3; margin-top: 20px;">
+        <h3 style="color: #b8860b;">&#9888;&#65039; 重要提示</h3>
+        <p style="font-size: 13px; color: #8b7355; margin-top: 8px;">
+            本清单所列信息基于公开资料整理，仅供参考。具体申报条件、奖补金额和时间节点以各级主管部门发布的最新官方文件为准。建议企业密切关注工信部、北京市经信局、北京市科委及经开区相关部门的年度申报通知，提前做好材料准备。预计奖补金额可能因政策调整而变化，部分项目奖补金额需根据实际投资额计算。
+        </p>
+        <div class="lifecycle-bar">
+            <h4>&#128203; 项目申报全生命周期</h4>
+            <div class="lifecycle-steps">
+                <div class="lifecycle-step">
+                    <div class="bar"></div>
+                    <div class="step-label">项目申报</div>
+                    <div class="step-pct">20%</div>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="bar"></div>
+                    <div class="step-label">评审批复</div>
+                    <div class="step-pct">20%</div>
+                </div>
+                <div class="lifecycle-step">
+                    <div class="bar"></div>
+                    <div class="step-label">资金下达</div>
+                    <div class="step-pct">20%</div>
+                </div>
+                <div class="lifecycle-step" style="flex: 2;">
+                    <div class="bar"></div>
+                    <div class="step-label">结项验收</div>
+                    <div class="step-pct">40%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 联系人信息条（固定板块） -->
+    <div class="contact-bar">
+        <div class="contact-bar-title">&#128222; 项目咨询联系人</div>
+        <div class="contact-bar-name">赵璐红</div>
+        <div class="contact-bar-info">
+            <span class="cb-label">舍得酒业</span> &middot; 公共事务部总经理
+        </div>
+        <div class="contact-bar-sep"></div>
+        <div class="contact-bar-info">
+            <span class="cb-label">电话</span> <a href="tel:18884606786">18884606786</a>
+        </div>
+        <div class="contact-bar-sep"></div>
+        <div class="contact-bar-info">
+            <span class="cb-label">地址</span> 四川省成都市武侯区复地复城国际T1
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- ===== 企业背景信息（折叠板块，点击展开） ===== -->
+    <!-- ============================================ -->
+
+    <!-- 企业概述 -->
+    <div class="section" id="overview">
+        <div class="collapsible-header" onclick="toggleCollapse(this)">
+            <div class="section-title">
+                <div class="icon">3</div>
+                <h2>企业概述</h2>
+            </div>
+            <div class="collapsible-toggle">&#9660;</div>
+        </div>
+        <div class="collapsible-body">
+            <div class="card">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="label">公司全称</div>
+                        <div class="value">予果生物科技（北京）有限公司</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">成立日期</div>
+                        <div class="value">2017年2月27日</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">法定代表人</div>
+                        <div class="value">夏涵</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">注册资本</div>
+                        <div class="value">约2,804万元</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">注册地址</div>
+                        <div class="value">北京经济技术开发区地盛东路1号院6号楼5层</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">员工规模</div>
+                        <div class="value">100-299人</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">融资阶段</div>
+                        <div class="value">C轮（战略投资）</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">行业分类</div>
+                        <div class="value">生物医药 / 体外诊断 / 基因测序</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">企业性质</div>
+                        <div class="value">民营 / 有限责任公司</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="label">纳税等级</div>
+                        <div class="value">A级纳税人（2025）</div>
+                    </div>
+                </div>
+                <p style="margin-top:20px; font-size:14px; color:var(--text-light);">
+                    予果生物成立于2017年，立足于中国感染精准医学行业，是国内最早将游离核苷酸（cell-free）宏基因组测序技术应用于临床病原检测的企业之一。公司致力于打造病原微生物分析的全产品方案，自主研发云端病原微生物数据分析系统PACE，实现临床样本检测72小时内快速定位300余种病原体。产品服务覆盖全国150余座城市、1,200余家医院，检测范围涵盖30,248种病原微生物。公司累计获得北极光创投、LYFE洲嶺资本、上海生物医药基金等多轮投资，C轮融资约3亿元。2024年获比尔及梅琳达·盖茨基金会捐赠资助。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主营业务 -->
+    <div class="section" id="business">
+        <div class="collapsible-header" onclick="toggleCollapse(this)">
+            <div class="section-title">
+                <div class="icon">4</div>
+                <h2>主营业务</h2>
+            </div>
+            <div class="collapsible-toggle">&#9660;</div>
+        </div>
+        <div class="collapsible-body">
+            <div class="card">
+                <div class="biz-grid">
+                    <div class="biz-card">
+                        <div class="biz-icon">&#129516;</div>
+                        <h4>PACEseq 高通量测序分析系统</h4>
+                        <p>自研云端病原微生物数据分析系统，基于宏基因组mNGS测序方法，可快速检测30,248种病原微生物，实现从样本到报告的全流程自动化分析。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon">&#127793;</div>
+                        <h4>tNGS 靶向测序产品</h4>
+                        <p>多重靶向扩增测序技术（tNGS），针对特定病原谱进行高灵敏度、低成本的精准检测，适用于常见感染性疾病的快速筛查与诊断。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon">&#128300;</div>
+                        <h4>BloodSeq 血液病原检测</h4>
+                        <p>基于游离DNA的血液感染病原微生物检测方案，无需培养即可从血浆样本中直接鉴定病原体，为血流感染提供快速精准的诊断支持。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon">&#129302;</div>
+                        <h4>DataLab 自动化分析平台</h4>
+                        <p>病原自动化分析系统，针对宏基因组或靶向测序下机数据（Fastq），自动化完成质控、比对、物种鉴定等全流程分析，集成AI算法辅助报告生成。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon">&#128296;</div>
+                        <h4>自研测序仪器设备</h4>
+                        <p>自主研发高通量测序设备，涵盖上游仪器设备、中游检测试剂及耗材的全产业链布局，降低检测成本，提升检测效率。</p>
+                    </div>
+                    <div class="biz-card">
+                        <div class="biz-icon">&#128218;</div>
+                        <h4>医学检测服务（LDT/IVD）</h4>
+                        <p>通过子公司北京予果医学检验实验室提供临床检测服务，覆盖全国150余城1,200余家医疗机构，累计发表SCI论文122篇，获授权专利46项。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 资质与荣誉 -->
+    <div class="section" id="honors">
+        <div class="collapsible-header" onclick="toggleCollapse(this)">
+            <div class="section-title">
+                <div class="icon">5</div>
+                <h2>资质与荣誉</h2>
+            </div>
+            <div class="collapsible-toggle">&#9660;</div>
+        </div>
+        <div class="collapsible-body">
+            <div class="card">
+                <div class="badge-group">
+                    <div class="level-label">&#127942; 国家级</div>
+                    <span class="badge national">国家高新技术企业（2024）</span>
+                    <span class="badge national">科技型中小企业（2022-2026）</span>
+                    <span class="badge national">A级纳税人（2025）</span>
+
+                    <div class="level-label">&#127941; 市级（北京市）</div>
+                    <span class="badge province">瞪羚企业（2024-2025）</span>
+                    <span class="badge province">专精特新中小企业</span>
+                    <span class="badge province">创新型中小企业</span>
+
+                    <div class="level-label">&#128293; 知识产权</div>
+                    <span class="badge city">发明专利 46项</span>
+                    <span class="badge city">注册商标 95件</span>
+                    <span class="badge city">软件著作权 多项</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 近三年项目申请 -->
+    <div class="section" id="history">
+        <div class="collapsible-header" onclick="toggleCollapse(this)">
+            <div class="section-title">
+                <div class="icon">6</div>
+                <h2>近三年项目申请记录</h2>
+            </div>
+            <div class="collapsible-toggle">&#9660;</div>
+        </div>
+        <div class="collapsible-body">
+            <div class="card">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-title">科技型中小企业评价入库</div>
+                        <div class="timeline-desc">北京市科委/中关村管委会认定，享受研发费用加计扣除等税收优惠。</div>
+                        <span class="timeline-status ongoing">有效期内</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-title">瞪羚企业认定（续评）</div>
+                        <div class="timeline-desc">北京市科委/中关村管委会瞪羚企业认定，标志企业高速成长阶段。</div>
+                        <span class="timeline-status done">已获批</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-title">A级纳税人评定</div>
+                        <div class="timeline-desc">国家税务总局评定为A级纳税人，体现良好的纳税信用。</div>
+                        <span class="timeline-status done">已获批</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">国家高新技术企业认定</div>
+                        <div class="timeline-desc">首次认定为国家高新技术企业，享受15%企业所得税优惠税率。</div>
+                        <span class="timeline-status done">已获批</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">瞪羚企业首次认定</div>
+                        <div class="timeline-desc">首次获评北京市瞪羚企业，标志企业进入快速成长期。</div>
+                        <span class="timeline-status done">已获批</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">专精特新中小企业认定</div>
+                        <div class="timeline-desc">北京市经济和信息化局认定为专精特新中小企业，获政策优先支持。</div>
+                        <span class="timeline-status done">已获批</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-title">比尔及梅琳达·盖茨基金会捐赠</div>
+                        <div class="timeline-desc">获得盖茨基金会捐赠资助，支持病原检测技术在发展中国家的应用推广。</div>
+                        <span class="timeline-status done">已完成</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-title">C轮融资（约3亿元）</div>
+                        <div class="timeline-desc">上海生物医药基金独家领投，LYFE洲嶺资本跟投，用于产品研发与市场拓展。</div>
+                        <span class="timeline-status done">已完成</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2026 予果生物科技（北京）有限公司 奖补项目申报清单 &middot; 生成日期：2026年6月12日</p>
+        <p style="margin-top:4px;">本清单基于公开信息整理，具体以官方最新文件为准</p>
+    </div>
+</div>
+
+<script>
+// 1. 折叠板块展开/收起
+function toggleCollapse(header) {
+    const body = header.nextElementSibling;
+    const isOpen = body.classList.contains('open');
+    if (isOpen) {
+        body.classList.remove('open');
+        header.classList.remove('open');
+    } else {
+        body.classList.add('open');
+        header.classList.add('open');
+    }
+}
+
+// 2. 导航平滑滚动 + 激活态切换
+document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+            // 如果是折叠板块且未展开，先展开
+            const body = target.querySelector('.collapsible-body');
+            if (body && !body.classList.contains('open')) {
+                const header = target.querySelector('.collapsible-header');
+                if (header) toggleCollapse(header);
+            }
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+        }
+        document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+        this.classList.add('active');
+    });
+});
+
+// 3. 表格层级筛选
+function filterTable(level) {
+    const rows = document.querySelectorAll('#projectTable tbody tr');
+    rows.forEach(row => {
+        if (level === 'all' || row.dataset.level === level) {
+            row.style.display = '';
+        } else {
+            row.style.display = 'none';
+        }
+    });
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (
+            (level === 'all' && btn.textContent === '全部') ||
+            (level === 'national' && btn.textContent === '国家级') ||
+            (level === 'province' && btn.textContent === '市级') ||
+            (level === 'district' && btn.textContent === '区级')
+        ) {
+            btn.classList.add('active');
+        }
+    });
+}
+
+// 4. 滚动监听 (Scroll Spy)
+const sections = document.querySelectorAll('.section');
+const navLinks = document.querySelectorAll('.nav a');
+window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 140;
+        if (window.scrollY >= sectionTop) {
+            current = section.getAttribute('id');
+        }
+    });
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + current) {
+            link.classList.add('active');
+        }
+    });
+});
+</script>
+</body>
+</html>
